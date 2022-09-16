@@ -20,16 +20,13 @@ jobs:
     name: Upload env
     runs-on: ubuntu-latest
     steps:
-    - name: Repository checkout
-      uses: actions/checkout@v2
-    - name: Connects to VPS via SSH
-      uses: garygrossgarten/github-action-ssh@release
+    - name: Deploy on Digital Ocean
       env:
-        FOO: "HERE"
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        privateKey: ${{ secrets.SSH_KEY }}
-        port: ${{ secrets.SSH_PORT }}
-        command: |
-          echo "I am $FOO"
+          PRIVATE_KEY: ${{ secrets.SSH_KEY  }}
+          HOSTNAME : ${{ secrets.HOSTNAME  }}
+          USER_NAME : ${{ secrets.USER_NAME  }}
+            
+      run: |
+        echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+        ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
+        echo hello

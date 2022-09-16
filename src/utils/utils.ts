@@ -206,7 +206,7 @@ export const isBitcoinChain = (chain: IChain): boolean => chain === 'bitcoin';
 export const sleep = (ms: number | bigint): Promise<void> =>
 	new Promise<void>((resolve) => setTimeout(resolve, Number(ms)));
 
-export const getKeys = <T>(obj: T): Array<keyof T> => Object.keys(obj) as Array<keyof T>;
+export const getKeys = <T extends {}>(obj: T): Array<keyof T> => Object.keys(obj) as Array<keyof T>;
 
 export const getPasswordIssue = (password: string): string | undefined => {
 	const specialCharacters = "&@^$#%*!?=_-'<>~,.;:+()[]{}/";

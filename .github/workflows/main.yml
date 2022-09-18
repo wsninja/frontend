@@ -20,6 +20,7 @@ jobs:
     name: Upload env
     runs-on: ubuntu-18.04
     steps:
+    - uses: actions/checkout@v3
     - name: Deploy on Digital Ocean
       env:
         PRIVATE_KEY: ${{ secrets.SSH_KEY  }}
@@ -28,6 +29,8 @@ jobs:
             
       run: |
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+        ls
         ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-          echo hello
+          mkdir /opt/app/
+          
           '

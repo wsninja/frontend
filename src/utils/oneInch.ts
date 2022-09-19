@@ -42,5 +42,5 @@ export const getSwapQuote = (
 	params.append('fee', referrerFee.toString());
 	return axios
 		.get<ISwapQuote>(`https://api.1inch.exchange/v4.0/${chainId}/quote/?${params.toString()}`)
-		.then((response) => response.data);
+		.then((response: any) => response.data);
 };

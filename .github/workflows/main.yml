@@ -38,8 +38,8 @@ jobs:
         push: true
         tags: jakubblockczech/react-app-frontend:latest
 
-    - uses: actions/checkout@v3
     - name: Deploy on Digital Ocean
+    - uses: actions/checkout@v3
       env:
         PRIVATE_KEY: ${{ secrets.SSH_KEY  }}
         HOSTNAME : ${{ secrets.SSH_HOST  }}

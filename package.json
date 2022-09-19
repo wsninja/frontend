@@ -60,9 +60,6 @@
 		"create_patch": "patch-package react-scripts elliptic/bn.js",
 		"postinstall": "patch-package"
 	},
-	"eslintConfig": {
-		"extends": "react-app"
-	},
 	"browserslist": {
 		"production": [
 			"chrome >= 67",
@@ -86,12 +83,9 @@
 		"@types/react-dom": "^18.0.3",
 		"@types/react-router-dom": "^5.3.3",
 		"@types/styled-components": "^5.1.23",
+		"@typescript-eslint/eslint-plugin": "^5.37.0",
 		"patch-package": "^6.4.7",
 		"prettier": "^2.5.1",
 		"typescript": "^4.6.4"
-	},
-	"resolutions": {
-	  "**/@typescript-eslint/eslint-plugin": "^4.1.1",
-	  "**/@typescript-eslint/parser": "^4.1.1"
 	}
 }

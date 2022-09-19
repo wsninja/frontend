@@ -35,15 +35,18 @@ jobs:
       with:
         push: true
         tags: jakubblockczech/react-app-frontend:latest
-    - name: Deploy on Digital Ocean
+    - name: Run docker image on the server
       env:
         PRIVATE_KEY: ${{ secrets.SSH_KEY  }}
         HOSTNAME : ${{ secrets.SSH_HOST  }}
         USER_NAME : ${{ secrets.SSH_USERNAME  }}
-            
       run: |
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-        ls
         ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-          echo starting instance action
+          echo PULLING DOCKER IMAGE
+          docker pull jakubblockczech/react-app-frontend:latest
+          echo STOPPING PREVIOUS DOCKER INSTANCE
+          docker stop react-app
+          echo RUNNING NEW DOCKER INSTANCE
+          docker run --rm -p 80:80 --name react-app -d jakubblockczech/react-app-frontend
           '

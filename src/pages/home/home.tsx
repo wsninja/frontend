@@ -26,7 +26,7 @@ export const Home: FC = () => {
 			<HomeLayout>
 				<div className={clsx('DesktopHome', isDarkTheme && 'DesktopHome--dark')}>
 					<div className="DesktopHome__card">
-						<h1 className="DesktopHome__brand">WallStreetNinja Test</h1>
+						<h1 className="DesktopHome__brand">WallStreetNinja</h1>
 						<h6 className="DesktopHome__tagline">The Unstoppable Finance Suite</h6>
 						<div className="Home__gif-container">
 							<img alt="WallStreetNinja" className="Home__gif" src={BrandLogoGifImage} />

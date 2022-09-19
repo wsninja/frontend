@@ -4,7 +4,6 @@ WORKDIR /react-app
 
 COPY package.json .
 RUN yarn install
-RUN yarn add react-scripts@3.4.1
 
 COPY . .
 

@@ -11,3 +11,4 @@ Url of the WallStreetNinja Backend
 Activates testing mode. Off = 0, On = 1
 
 
+
